@@ -42,6 +42,30 @@ app.get('/customers', (req, res) => {
             throw err;
         }
     })
-})
+});
+
+app.get('/customer/:id', (req, res) => {
+    Customer.findById(req.params.id).then((customer) => {
+        if (customer){
+            res.json(customer);
+        }else{
+            res.send('Invalid ID');
+        }
+    }).catch((err) => {
+        if (err){
+            throw err;
+        }
+    })
+});
+
+app.delete('/customer/:id', (req, res) => {
+    Customer.findOneAndRemove(req.params.id).then(() => {
+        res.send('Customer deleted succesfully');
+    }).catch((err) => {
+        if (err) {
+            throw err;
+        }
+    })
+});
 
 app.listen(port, () => console.log(`Up and running - Customer Service`));

@@ -47,6 +47,28 @@ app.get('/customers', function (req, res) {
     }
   });
 });
+app.get('/customer/:id', function (req, res) {
+  Customer.findById(req.params.id).then(function (customer) {
+    if (customer) {
+      res.json(customer);
+    } else {
+      res.send('Invalid ID');
+    }
+  })["catch"](function (err) {
+    if (err) {
+      throw err;
+    }
+  });
+});
+app["delete"]('/customer/:id', function (req, res) {
+  Customer.findOneAndRemove(req.params.id).then(function () {
+    res.send('Customer deleted succesfully');
+  })["catch"](function (err) {
+    if (err) {
+      throw err;
+    }
+  });
+});
 app.listen(port, function () {
   return console.log("Up and running - Customer Service");
 });
