@@ -12,7 +12,7 @@ const { send } = require('process');
 require("./Book");
 const Book = mongoose.model("Book");
 
-mongoose.connect("mongodb+srv://khamid:H8dTbwtyJzrP3S5c@cluster0.gmwhz.mongodb.net/booksservice?retryWrites=true&w=majority", () => {
+mongoose.connect("mongodb+srv://khamid:pass123@cluster0.gmwhz.mongodb.net/booksservice?retryWrites=true&w=majority", () => {
     console.log("Database is Connected");
 });
 

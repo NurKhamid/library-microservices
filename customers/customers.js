@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 require("./Customer");
 const Customer = mongoose.model("Customer");
 
-mongoose.connect("mongodb+srv://khamid:H8dTbwtyJzrP3S5c@cluster0.gmwhz.mongodb.net/customersservice?retryWrites=true&w=majority", () => {
+mongoose.connect("mongodb+srv://khamid:pass123@cluster0.gmwhz.mongodb.net/customersservice?retryWrites=true&w=majority", () => {
     console.log("Database is Connected");
 });
 
